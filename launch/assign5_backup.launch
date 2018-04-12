@@ -1,5 +1,6 @@
 <launch>
 
+
   <include file="$(find turtlebot_bringup)/launch/minimal.launch"/>
   
   <node name="recognizer" pkg="pocketsphinx" type="recognizer.py">
