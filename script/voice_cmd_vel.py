@@ -40,34 +40,34 @@ class voice_cmd_vel:
         
     def speechCb(self, msg):
         rospy.loginfo(msg.data)
-
+        
         if msg.data.find("forward") > -1: 
             rospy.loginfo("=== input: forward ===")   
-            self.msg.linear.x = self.speed
-            self.msg.angular.z = 0
+            # self.msg.linear.x = self.speed
+            # self.msg.angular.z = 0
         elif msg.data.find("left") > -1:
             rospy.loginfo("=== input: left ===") 
-            if self.msg.linear.x != 0:
-                if self.msg.angular.z < self.speed:
-                    self.msg.angular.z += 0.05
-            else:        
-                self.msg.angular.z = self.speed*2
+            # if self.msg.linear.x != 0:
+            #     if self.msg.angular.z < self.speed:
+            #         self.msg.angular.z += 0.05
+            # else:        
+            #     self.msg.angular.z = self.speed*2
         elif msg.data.find("right") > -1: 
             rospy.loginfo("=== input: right ===")    
-            if self.msg.linear.x != 0:
-                if self.msg.angular.z > -self.speed:
-                    self.msg.angular.z -= 0.05
-            else:        
-                self.msg.angular.z = -self.speed*2
+            # if self.msg.linear.x != 0:
+            #     if self.msg.angular.z > -self.speed:
+            #         self.msg.angular.z -= 0.05
+            # else:        
+            #     self.msg.angular.z = -self.speed*2
         elif msg.data.find("back") > -1:
             rospy.loginfo("=== input: back ===") 
-            self.msg.linear.x = -self.speed
-            self.msg.angular.z = 0
+            # self.msg.linear.x = -self.speed
+            # self.msg.angular.z = 0
         elif msg.data.find("stop") > -1:
             rospy.loginfo("=== input: stop ===")           
-            self.msg = Twist()
+            # self.msg = Twist()
         
-        self.pub_.publish(self.msg)
+        # self.pub_.publish(self.msg)
 
     def cleanup(self):
         # stop the robot!
